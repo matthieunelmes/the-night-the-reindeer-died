@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+ 
+<html>
+ 
+  <head>
+ 
+    <meta charset="utf-8" />
+ 
+    <title>Santa</title>
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <meta name="mobile-web-app-capable" content="yes">
+ 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+	<script type="text/javascript" src="boot.js"></script>
+	<script type="text/javascript" src="preload.js"></script>
+	<script type="text/javascript" src="gametitle.js"></script>
+	<script type="text/javascript" src="thegame.js"></script>
+<style>
+ 	html { 
+  background: url(assets/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+      body {
+ 
+        padding: 0px;
+ 
+        margin: 0px;
+ 
+      }
+      #game-wrapper{
+        margin: 130px auto 10px auto;
+        width:746px;
+      }
+      #game{
+      	margin: 130px auto 10px auto;
+      	width:746px;
+      	height:420px;
+        box-shadow: 0 0 15px #6ac8f8;
+        border-radius: 10px;
+      }
+canvas{
+	border-radius: 10px;
+} 
+      </style>
+</head>
+<body>
+  <div id="game-wrapper">
+<div id="game"></div>
+<img src="assets/instructions.png"/>
+</div>
+
+		<script>
+			(function() {
+				var game = new Phaser.Game(746, 420, Phaser.CANVAS, "game");
+				game.state.add("Boot",boot);
+				game.state.add("Preload",preload);
+				game.state.add("GameTitle",gameTitle);
+				game.state.add("TheGame",theGame);
+				game.state.start("Boot");
+			})();    
+		</script>
+
+</body>
+</html>
